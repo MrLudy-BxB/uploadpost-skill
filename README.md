@@ -7,13 +7,13 @@ A source-grounded skill for working with the Upload-Post API documentation. It c
 Install from the standalone GitHub repository:
 
 ```bash
-codex skills install https://github.com/MrLudy-BxB/uploadpost-skill
+npx skills add https://github.com/MrLudy-BxB/uploadpost-skill
 ```
 
 From a local clone:
 
 ```bash
-codex skills install .
+npx skills add .
 ```
 
 ## Example Questions
