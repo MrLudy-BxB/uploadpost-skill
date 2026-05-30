@@ -1,0 +1,284 @@
+[
+  {
+    "id": "docs/api/autodms.md",
+    "title": "AutoDM Monitors",
+    "file": "llm-sections/api__autodms.md",
+    "publicUrl": "https://docs.upload-post.com/api/autodms"
+  },
+  {
+    "id": "docs/api/current-user.md",
+    "title": "Current User API",
+    "file": "llm-sections/api__current-user.md",
+    "publicUrl": "https://docs.upload-post.com/api/current-user"
+  },
+  {
+    "id": "docs/api/ffmpeg-editor.md",
+    "title": "FFmpeg Editor API",
+    "file": "llm-sections/api__ffmpeg-editor.md",
+    "publicUrl": "https://docs.upload-post.com/api/ffmpeg-editor"
+  },
+  {
+    "id": "docs/api/get-analytics.md",
+    "title": "GET /api/analytics/profile\\_username",
+    "file": "llm-sections/api__get-analytics.md",
+    "publicUrl": "https://docs.upload-post.com/api/get-analytics"
+  },
+  {
+    "id": "docs/api/get-facebook-pages.md",
+    "title": "This endpoint is crucial for uploads, as it provides you with the necessary ID to specify which Facebook Page you want to send your content to.",
+    "file": "llm-sections/api__get-facebook-pages.md",
+    "publicUrl": "https://docs.upload-post.com/api/get-facebook-pages"
+  },
+  {
+    "id": "docs/api/get-google-business-locations.md",
+    "title": "This endpoint queries the Google Business Profile API in real-time to return all available locations for a connected account. Use this to let users choose which location to post to.",
+    "file": "llm-sections/api__get-google-business-locations.md",
+    "publicUrl": "https://docs.upload-post.com/api/get-google-business-locations"
+  },
+  {
+    "id": "docs/api/get-linkedin-pages.md",
+    "title": "This endpoint is crucial for uploads, as it provides you with the necessary ID to specify which LinkedIn Page you want to send your content to.",
+    "file": "llm-sections/api__get-linkedin-pages.md",
+    "publicUrl": "https://docs.upload-post.com/api/get-linkedin-pages"
+  },
+  {
+    "id": "docs/api/get-pinterest-boards.md",
+    "title": "This endpoint is crucial for uploads, as it provides you with the necessary ID to specify which Pinterest Board you want to send your content to.",
+    "file": "llm-sections/api__get-pinterest-boards.md",
+    "publicUrl": "https://docs.upload-post.com/api/get-pinterest-boards"
+  },
+  {
+    "id": "docs/api/get-reddit-detailed-posts.md",
+    "title": "GET /api/uploadposts/reddit/detailed-posts/",
+    "file": "llm-sections/api__get-reddit-detailed-posts.md",
+    "publicUrl": "https://docs.upload-post.com/api/get-reddit-detailed-posts"
+  },
+  {
+    "id": "docs/api/instagram-comments.md",
+    "title": "Comments",
+    "file": "llm-sections/api__instagram-comments.md",
+    "publicUrl": "https://docs.upload-post.com/api/instagram-comments"
+  },
+  {
+    "id": "docs/api/instagram-dms.md",
+    "title": "Direct Messages",
+    "file": "llm-sections/api__instagram-dms.md",
+    "publicUrl": "https://docs.upload-post.com/api/instagram-dms"
+  },
+  {
+    "id": "docs/api/instagram-media.md",
+    "title": "Media List",
+    "file": "llm-sections/api__instagram-media.md",
+    "publicUrl": "https://docs.upload-post.com/api/instagram-media"
+  },
+  {
+    "id": "docs/api/overview.md",
+    "title": "Upload-Post API Overview",
+    "file": "llm-sections/api__overview.md",
+    "publicUrl": "https://docs.upload-post.com/api/overview"
+  },
+  {
+    "id": "docs/api/photo-requirements.md",
+    "title": "Photo Format Requirements",
+    "file": "llm-sections/api__photo-requirements.md",
+    "publicUrl": "https://docs.upload-post.com/api/photo-requirements"
+  },
+  {
+    "id": "docs/api/queue-system.md",
+    "title": "Queue System",
+    "file": "llm-sections/api__queue-system.md",
+    "publicUrl": "https://docs.upload-post.com/api/queue-system"
+  },
+  {
+    "id": "docs/api/reference.md",
+    "title": "API Reference",
+    "file": "llm-sections/api__reference.md",
+    "publicUrl": "https://docs.upload-post.com/api/reference"
+  },
+  {
+    "id": "docs/api/schedule-posts.md",
+    "title": "Manage Scheduled Posts",
+    "file": "llm-sections/api__schedule-posts.md",
+    "publicUrl": "https://docs.upload-post.com/api/schedule-posts"
+  },
+  {
+    "id": "docs/api/upload-document.md",
+    "title": "Upload Document",
+    "file": "llm-sections/api__upload-document.md",
+    "publicUrl": "https://docs.upload-post.com/api/upload-document"
+  },
+  {
+    "id": "docs/api/upload-history.md",
+    "title": "Upload History",
+    "file": "llm-sections/api__upload-history.md",
+    "publicUrl": "https://docs.upload-post.com/api/upload-history"
+  },
+  {
+    "id": "docs/api/upload-photo.md",
+    "title": "Upload Photos",
+    "file": "llm-sections/api__upload-photo.md",
+    "publicUrl": "https://docs.upload-post.com/api/upload-photo"
+  },
+  {
+    "id": "docs/api/upload-status.md",
+    "title": "Upload Status",
+    "file": "llm-sections/api__upload-status.md",
+    "publicUrl": "https://docs.upload-post.com/api/upload-status"
+  },
+  {
+    "id": "docs/api/upload-text.md",
+    "title": "Upload Text",
+    "file": "llm-sections/api__upload-text.md",
+    "publicUrl": "https://docs.upload-post.com/api/upload-text"
+  },
+  {
+    "id": "docs/api/upload-video.md",
+    "title": "Upload Video",
+    "file": "llm-sections/api__upload-video.md",
+    "publicUrl": "https://docs.upload-post.com/api/upload-video"
+  },
+  {
+    "id": "docs/api/user-profiles.md",
+    "title": "User Profiles API",
+    "file": "llm-sections/api__user-profiles.md",
+    "publicUrl": "https://docs.upload-post.com/api/user-profiles"
+  },
+  {
+    "id": "docs/api/video-requirements.md",
+    "title": "Video Format Requirements",
+    "file": "llm-sections/api__video-requirements.md",
+    "publicUrl": "https://docs.upload-post.com/api/video-requirements"
+  },
+  {
+    "id": "docs/api/webhooks.md",
+    "title": "Upload-Post allows you to receive real-time notifications about upload statuses and social account connection changes. This eliminates the need to poll endpoints for status updates.",
+    "file": "llm-sections/api__webhooks.md",
+    "publicUrl": "https://docs.upload-post.com/api/webhooks"
+  },
+  {
+    "id": "docs/guides/ai-shorts-uploader.md",
+    "title": "AI Shorts Uploader",
+    "file": "llm-sections/guides__ai-shorts-uploader.md",
+    "publicUrl": "https://docs.upload-post.com/guides/ai-shorts-uploader"
+  },
+  {
+    "id": "docs/guides/airtable-integration.md",
+    "title": "Airtable Integration",
+    "file": "llm-sections/guides__airtable-integration.md",
+    "publicUrl": "https://docs.upload-post.com/guides/airtable-integration"
+  },
+  {
+    "id": "docs/guides/async-uploads.md",
+    "title": "Avoid Timeouts with Asynchronous Uploads",
+    "file": "llm-sections/guides__async-uploads.md",
+    "publicUrl": "https://docs.upload-post.com/guides/async-uploads"
+  },
+  {
+    "id": "docs/guides/authentication.md",
+    "title": "Authentication",
+    "file": "llm-sections/guides__authentication.md",
+    "publicUrl": "https://docs.upload-post.com/guides/authentication"
+  },
+  {
+    "id": "docs/guides/error-handling.md",
+    "title": "API Error Handling: Upload Endpoints",
+    "file": "llm-sections/guides__error-handling.md",
+    "publicUrl": "https://docs.upload-post.com/guides/error-handling"
+  },
+  {
+    "id": "docs/guides/limit-of-uploads.md",
+    "title": "Limit of uploads",
+    "file": "llm-sections/guides__limit-of-uploads.md",
+    "publicUrl": "https://docs.upload-post.com/guides/limit-of-uploads"
+  },
+  {
+    "id": "docs/guides/make-integration.md",
+    "title": "Make Integration",
+    "file": "llm-sections/guides__make-integration.md",
+    "publicUrl": "https://docs.upload-post.com/guides/make-integration"
+  },
+  {
+    "id": "docs/guides/mcp-server-integration.md",
+    "title": "MCP Server (Claude / Cursor)",
+    "file": "llm-sections/guides__mcp-server-integration.md",
+    "publicUrl": "https://docs.upload-post.com/guides/mcp-server-integration"
+  },
+  {
+    "id": "docs/guides/n8n-integration.md",
+    "title": "n8n Integration",
+    "file": "llm-sections/guides__n8n-integration.md",
+    "publicUrl": "https://docs.upload-post.com/guides/n8n-integration"
+  },
+  {
+    "id": "docs/guides/rate-limits.md",
+    "title": "Rate Limits & Polling Best Practices",
+    "file": "llm-sections/guides__rate-limits.md",
+    "publicUrl": "https://docs.upload-post.com/guides/rate-limits"
+  },
+  {
+    "id": "docs/guides/reached-active-user-cap-error.md",
+    "title": "Error: {\"code\":\"reached\\_active\\_user\\_cap\"}",
+    "file": "llm-sections/guides__reached-active-user-cap-error.md",
+    "publicUrl": "https://docs.upload-post.com/guides/reached-active-user-cap-error"
+  },
+  {
+    "id": "docs/guides/user-profile-integration.md",
+    "title": "White-label Integration Guide",
+    "file": "llm-sections/guides__user-profile-integration.md",
+    "publicUrl": "https://docs.upload-post.com/guides/user-profile-integration"
+  },
+  {
+    "id": "docs/guides/youtube-quota-explained.md",
+    "title": "Understanding YouTube API Quota Limits",
+    "file": "llm-sections/guides__youtube-quota-explained.md",
+    "publicUrl": "https://docs.upload-post.com/guides/youtube-quota-explained"
+  },
+  {
+    "id": "docs/introduction.md",
+    "title": "Upload-Post Social Media API",
+    "file": "llm-sections/introduction.md",
+    "publicUrl": "https://docs.upload-post.com/introduction"
+  },
+  {
+    "id": "docs/landing.md",
+    "title": "Upload-Post API",
+    "file": "llm-sections/landing.md",
+    "publicUrl": "https://docs.upload-post.com/landing"
+  },
+  {
+    "id": "docs/quickstart.md",
+    "title": "Quickstart Guide",
+    "file": "llm-sections/quickstart.md",
+    "publicUrl": "https://docs.upload-post.com/quickstart"
+  },
+  {
+    "id": "docs/resources/character-limits.md",
+    "title": "Social Media Character Limits",
+    "file": "llm-sections/resources__character-limits.md",
+    "publicUrl": "https://docs.upload-post.com/resources/character-limits"
+  },
+  {
+    "id": "docs/resources/common-errors.md",
+    "title": "Common Errors",
+    "file": "llm-sections/resources__common-errors.md",
+    "publicUrl": "https://docs.upload-post.com/resources/common-errors"
+  },
+  {
+    "id": "docs/resources/faq.md",
+    "title": "Frequently Asked Questions",
+    "file": "llm-sections/resources__faq.md",
+    "publicUrl": "https://docs.upload-post.com/resources/faq"
+  },
+  {
+    "id": "docs/resources/support.md",
+    "title": "Support",
+    "file": "llm-sections/resources__support.md",
+    "publicUrl": "https://docs.upload-post.com/resources/support"
+  },
+  {
+    "id": "docs/sdk-examples.md",
+    "title": "SDK Examples",
+    "file": "llm-sections/sdk-examples.md",
+    "publicUrl": "https://docs.upload-post.com/sdk-examples"
+  }
+]

@@ -1,0 +1,2746 @@
+[
+  {
+    "id": "uploadVideo",
+    "method": "POST",
+    "path": "/upload",
+    "baseUrl": "https://api.upload-post.com/api",
+    "fullUrl": "https://api.upload-post.com/api/upload",
+    "summary": "Upload video",
+    "description": "Upload a video to one or more social media platforms. Supports TikTok, Instagram, LinkedIn, YouTube, Facebook, X (Twitter), Threads, Pinterest, Bluesky, and Reddit. Supports immediate, async, scheduled, and queued uploads.",
+    "tags": [
+      "Content Upload"
+    ],
+    "source": "https://docs.upload-post.com/openapi.json",
+    "publicDocsUrl": "https://docs.upload-post.com/api/reference",
+    "topicFile": "by-topic/content-upload.md",
+    "required": [
+      "platform[]",
+      "user",
+      "video"
+    ],
+    "parameters": [],
+    "requestProperties": [
+      {
+        "name": "user",
+        "required": true,
+        "type": "string",
+        "description": "User profile identifier."
+      },
+      {
+        "name": "platform[]",
+        "required": true,
+        "type": "array",
+        "description": "Platform(s) to upload to."
+      },
+      {
+        "name": "video",
+        "required": true,
+        "type": "string",
+        "description": "The video file to upload (binary file) or a public video URL."
+      },
+      {
+        "name": "title",
+        "required": false,
+        "type": "string",
+        "description": "Default title/caption of the video. Required for YouTube and Reddit; optional for all other platforms. Platform-specific titles override this."
+      },
+      {
+        "name": "description",
+        "required": false,
+        "type": "string",
+        "description": "Optional extended text used on LinkedIn commentary, Facebook descriptions, YouTube descriptions, and Pinterest notes. Ignored elsewhere."
+      },
+      {
+        "name": "scheduled_date",
+        "required": false,
+        "type": "string",
+        "description": "ISO-8601 date/time to schedule publishing (e.g., '2025-12-31T23:45:00Z'). Must be in the future (≤365 days). Omit for immediate upload. Cannot be used with `add_to_queue`."
+      },
+      {
+        "name": "timezone",
+        "required": false,
+        "type": "string",
+        "description": "IANA timezone identifier (e.g., 'Europe/Madrid', 'America/New_York'). If provided, `scheduled_date` is interpreted in this timezone. Defaults to UTC."
+      },
+      {
+        "name": "async_upload",
+        "required": false,
+        "type": "boolean",
+        "description": "If true, returns immediately with a `request_id` and processes in the background. If false but upload takes >59s, automatically switches to async."
+      },
+      {
+        "name": "add_to_queue",
+        "required": false,
+        "type": "boolean",
+        "description": "If true, automatically schedules the post to the next available queue slot. Cannot be used with `scheduled_date`."
+      },
+      {
+        "name": "first_comment",
+        "required": false,
+        "type": "string",
+        "description": "Automatically post a first comment after publishing. Supported on Instagram, Facebook, Threads, Bluesky, Reddit, X, YouTube, and LinkedIn."
+      },
+      {
+        "name": "instagram_first_comment",
+        "required": false,
+        "type": "string",
+        "description": "[Instagram] Platform-specific first comment. Overrides `first_comment`."
+      },
+      {
+        "name": "facebook_first_comment",
+        "required": false,
+        "type": "string",
+        "description": "[Facebook] Platform-specific first comment. Overrides `first_comment`."
+      },
+      {
+        "name": "x_first_comment",
+        "required": false,
+        "type": "string",
+        "description": "[X] Platform-specific first comment. Overrides `first_comment`."
+      },
+      {
+        "name": "threads_first_comment",
+        "required": false,
+        "type": "string",
+        "description": "[Threads] Platform-specific first comment. Overrides `first_comment`."
+      },
+      {
+        "name": "youtube_first_comment",
+        "required": false,
+        "type": "string",
+        "description": "[YouTube] Platform-specific first comment. Overrides `first_comment`."
+      },
+      {
+        "name": "reddit_first_comment",
+        "required": false,
+        "type": "string",
+        "description": "[Reddit] Platform-specific first comment. Overrides `first_comment`."
+      },
+      {
+        "name": "bluesky_first_comment",
+        "required": false,
+        "type": "string",
+        "description": "[Bluesky] Platform-specific first comment. Overrides `first_comment`."
+      },
+      {
+        "name": "linkedin_first_comment",
+        "required": false,
+        "type": "string",
+        "description": "[LinkedIn] Platform-specific first comment. Overrides `first_comment`."
+      },
+      {
+        "name": "first_comment_media[]",
+        "required": false,
+        "type": "array",
+        "description": "Image files to attach to the first comment as inline images. Currently supported on Reddit. Not available for scheduled or queued posts."
+      },
+      {
+        "name": "instagram_title",
+        "required": false,
+        "type": "string",
+        "description": "[Instagram] Specific title. Fallbacks to `title`."
+      },
+      {
+        "name": "facebook_title",
+        "required": false,
+        "type": "string",
+        "description": "[Facebook] Specific title. Fallbacks to `title`. Ignored if facebook_media_type is STORIES."
+      },
+      {
+        "name": "tiktok_title",
+        "required": false,
+        "type": "string",
+        "description": "[TikTok] Specific title. Fallbacks to `title`."
+      },
+      {
+        "name": "linkedin_title",
+        "required": false,
+        "type": "string",
+        "description": "[LinkedIn] Specific title. Fallbacks to `title`."
+      },
+      {
+        "name": "x_title",
+        "required": false,
+        "type": "string",
+        "description": "[X] Specific title. Fallbacks to `title`."
+      },
+      {
+        "name": "youtube_title",
+        "required": false,
+        "type": "string",
+        "description": "[YouTube] Specific title. Fallbacks to `title`."
+      },
+      {
+        "name": "pinterest_title",
+        "required": false,
+        "type": "string",
+        "description": "[Pinterest] Specific title. Fallbacks to `title`."
+      },
+      {
+        "name": "threads_title",
+        "required": false,
+        "type": "string",
+        "description": "[Threads] Specific title. Fallbacks to `title`."
+      },
+      {
+        "name": "threads_topic_tag",
+        "required": false,
+        "type": "string",
+        "description": "[Threads] A topic tag for the post (1-50 characters). Cannot contain periods (.) or ampersands (&). One tag per post."
+      },
+      {
+        "name": "bluesky_title",
+        "required": false,
+        "type": "string",
+        "description": "[Bluesky] Specific text. Fallbacks to `title`."
+      },
+      {
+        "name": "reddit_title",
+        "required": false,
+        "type": "string",
+        "description": "[Reddit] Specific title. Fallbacks to `title`."
+      },
+      {
+        "name": "privacy_level",
+        "required": false,
+        "type": "TikTokPrivacyLevel",
+        "description": ""
+      },
+      {
+        "name": "disable_duet",
+        "required": false,
+        "type": "boolean",
+        "description": "[TikTok] Disable duet feature."
+      },
+      {
+        "name": "disable_comment",
+        "required": false,
+        "type": "boolean",
+        "description": "[TikTok] Disable comments."
+      },
+      {
+        "name": "disable_stitch",
+        "required": false,
+        "type": "boolean",
+        "description": "[TikTok] Disable stitch feature."
+      },
+      {
+        "name": "post_mode",
+        "required": false,
+        "type": "TikTokPostMode",
+        "description": ""
+      },
+      {
+        "name": "cover_timestamp",
+        "required": false,
+        "type": "integer",
+        "description": "[TikTok] Timestamp in milliseconds for video cover."
+      },
+      {
+        "name": "brand_content_toggle",
+        "required": false,
+        "type": "boolean",
+        "description": "[TikTok] Set to true for paid partnerships promoting third-party brands."
+      },
+      {
+        "name": "brand_organic_toggle",
+        "required": false,
+        "type": "boolean",
+        "description": "[TikTok] Set to true when promoting the creator's own business."
+      },
+      {
+        "name": "is_aigc",
+        "required": false,
+        "type": "boolean",
+        "description": "[TikTok] Indicates if content is AI-generated."
+      },
+      {
+        "name": "media_type",
+        "required": false,
+        "type": "InstagramVideoMediaType",
+        "description": ""
+      },
+      {
+        "name": "share_mode",
+        "required": false,
+        "type": "InstagramShareMode",
+        "description": ""
+      },
+      {
+        "name": "share_to_feed",
+        "required": false,
+        "type": "boolean",
+        "description": "[Instagram] Whether to share to feed (only for regular Reels, not Trial Reels)."
+      },
+      {
+        "name": "collaborators",
+        "required": false,
+        "type": "string",
+        "description": "[Instagram] Comma-separated list of collaborator usernames. Not available for Trial Reels."
+      },
+      {
+        "name": "cover_url",
+        "required": false,
+        "type": "string",
+        "description": "[Instagram] URL for custom video cover. Alternative to cover_image binary upload."
+      },
+      {
+        "name": "cover_image",
+        "required": false,
+        "type": "string",
+        "description": "[Instagram] Binary cover image for Reels (JPEG, max 8MB). If both cover_image and cover_url are provided, cover_url takes precedence."
+      },
+      {
+        "name": "audio_name",
+        "required": false,
+        "type": "string",
+        "description": "[Instagram] Name of the audio track embedded in your video (Reels only)."
+      },
+      {
+        "name": "user_tags",
+        "required": false,
+        "type": "string",
+        "description": "[Instagram] Comma-separated list of user tags."
+      },
+      {
+        "name": "location_id",
+        "required": false,
+        "type": "string",
+        "description": "[Instagram] Instagram location ID."
+      },
+      {
+        "name": "thumb_offset",
+        "required": false,
+        "type": "string",
+        "description": "[Instagram] Timestamp offset for video thumbnail."
+      },
+      {
+        "name": "linkedin_description",
+        "required": false,
+        "type": "string",
+        "description": "[LinkedIn] Sent as the LinkedIn commentary. If omitted, reuses `title`."
+      },
+      {
+        "name": "visibility",
+        "required": false,
+        "type": "LinkedInVisibility",
+        "description": ""
+      },
+      {
+        "name": "target_linkedin_page_id",
+        "required": false,
+        "type": "string",
+        "description": "[LinkedIn] LinkedIn page ID to upload to an organization page."
+      },
+      {
+        "name": "youtube_description",
+        "required": false,
+        "type": "string",
+        "description": "[YouTube] Populates snippet.description. If omitted, uses `title`."
+      },
+      {
+        "name": "tags",
+        "required": false,
+        "type": "array",
+        "description": "[YouTube] Array of video tags."
+      },
+      {
+        "name": "categoryId",
+        "required": false,
+        "type": "string",
+        "description": "[YouTube] Video category ID."
+      },
+      {
+        "name": "privacyStatus",
+        "required": false,
+        "type": "YouTubePrivacyStatus",
+        "description": ""
+      },
+      {
+        "name": "embeddable",
+        "required": false,
+        "type": "boolean",
+        "description": "[YouTube] Whether video is embeddable."
+      },
+      {
+        "name": "license",
+        "required": false,
+        "type": "string",
+        "description": "[YouTube] Video license ('youtube' or 'creativeCommon')."
+      },
+      {
+        "name": "publicStatsViewable",
+        "required": false,
+        "type": "boolean",
+        "description": "[YouTube] Whether public stats are viewable."
+      },
+      {
+        "name": "thumbnail",
+        "required": false,
+        "type": "string",
+        "description": "[YouTube] Custom thumbnail image file (JPG/PNG/GIF/BMP, max 2MB). Not supported for Shorts."
+      },
+      {
+        "name": "thumbnail_url",
+        "required": false,
+        "type": "string",
+        "description": "[YouTube] Alternative: provide thumbnail as a public URL."
+      },
+      {
+        "name": "selfDeclaredMadeForKids",
+        "required": false,
+        "type": "boolean",
+        "description": "[YouTube] Explicit declaration for COPPA compliance."
+      },
+      {
+        "name": "containsSyntheticMedia",
+        "required": false,
+        "type": "boolean",
+        "description": "[YouTube] Declaration that video contains AI-generated content."
+      },
+      {
+        "name": "defaultLanguage",
+        "required": false,
+        "type": "string",
+        "description": "[YouTube] Language of title and description (BCP-47 code, e.g., 'es', 'en')."
+      },
+      {
+        "name": "defaultAudioLanguage",
+        "required": false,
+        "type": "string",
+        "description": "[YouTube] Language of the video audio (BCP-47 code, e.g., 'es-ES', 'en-US')."
+      },
+      {
+        "name": "allowedCountries",
+        "required": false,
+        "type": "string",
+        "description": "[YouTube] Comma-separated ISO 3166-1 alpha-2 country codes where the video is allowed. Cannot be used with `blockedCountries`."
+      },
+      {
+        "name": "blockedCountries",
+        "required": false,
+        "type": "string",
+        "description": "[YouTube] Comma-separated ISO 3166-1 alpha-2 country codes where the video is blocked. Cannot be used with `allowedCountries`."
+      },
+      {
+        "name": "hasPaidProductPlacement",
+        "required": false,
+        "type": "boolean",
+        "description": "[YouTube] Declaration of paid product placements for FTC compliance."
+      },
+      {
+        "name": "recordingDate",
+        "required": false,
+        "type": "string",
+        "description": "[YouTube] Recording date (ISO 8601, e.g., '2024-01-15T14:30:00Z')."
+      },
+      {
+        "name": "facebook_page_id",
+        "required": false,
+        "type": "string",
+        "description": "[Facebook] Facebook Page ID where the video will be posted. Required for Facebook. Auto-detected if only one page is connected."
+      },
+      {
+        "name": "facebook_description",
+        "required": false,
+        "type": "string",
+        "description": "[Facebook] Sent as video description. Ignored for STORIES."
+      },
+      {
+        "name": "facebook_media_type",
+        "required": false,
+        "type": "FacebookVideoMediaType",
+        "description": ""
+      },
+      {
+        "name": "video_state",
+        "required": false,
+        "type": "string",
+        "description": "[Facebook] Desired state of the video."
+      },
+      {
+        "name": "x_long_text_as_post",
+        "required": false,
+        "type": "boolean",
+        "description": "[X] When true, publishes long text as a single post instead of a thread."
+      },
+      {
+        "name": "reply_settings",
+        "required": false,
+        "type": "XReplySettings",
+        "description": ""
+      },
+      {
+        "name": "geo_place_id",
+        "required": false,
+        "type": "string",
+        "description": "[X] Place ID for geographic location."
+      },
+      {
+        "name": "nullcast",
+        "required": false,
+        "type": "boolean",
+        "description": "[X] Whether to publish without broadcasting (promoted-only posts)."
+      },
+      {
+        "name": "for_super_followers_only",
+        "required": false,
+        "type": "boolean",
+        "description": "[X] Tweet exclusive for super followers."
+      },
+      {
+        "name": "community_id",
+        "required": false,
+        "type": "string",
+        "description": "[X] Community ID for posting to specific communities."
+      },
+      {
+        "name": "share_with_followers",
+        "required": false,
+        "type": "boolean",
+        "description": "[X] Share community post with followers."
+      },
+      {
+        "name": "direct_message_deep_link",
+        "required": false,
+        "type": "string",
+        "description": "[X] Link to take conversation to private Direct Message."
+      },
+      {
+        "name": "tagged_user_ids",
+        "required": false,
+        "type": "array",
+        "description": "[X] Array of user IDs to tag in the media (max 10)."
+      },
+      {
+        "name": "reply_to_id",
+        "required": false,
+        "type": "string",
+        "description": "[X] ID of the tweet to reply to."
+      },
+      {
+        "name": "exclude_reply_user_ids",
+        "required": false,
+        "type": "array",
+        "description": "[X] User IDs to exclude from replying. Requires `reply_to_id`."
+      },
+      {
+        "name": "pinterest_description",
+        "required": false,
+        "type": "string",
+        "description": "[Pinterest] Pin description. If omitted, reuses `title`."
+      },
+      {
+        "name": "pinterest_board_id",
+        "required": false,
+        "type": "string",
+        "description": "[Pinterest] Pinterest board ID to publish to. Required when platform includes pinterest."
+      },
+      {
+        "name": "pinterest_alt_text",
+        "required": false,
+        "type": "string",
+        "description": "[Pinterest] Alt text for the video."
+      },
+      {
+        "name": "pinterest_link",
+        "required": false,
+        "type": "string",
+        "description": "[Pinterest] Destination link for the video Pin."
+      },
+      {
+        "name": "pinterest_cover_image_url",
+        "required": false,
+        "type": "string",
+        "description": "[Pinterest] URL of an image to use as the video cover."
+      },
+      {
+        "name": "pinterest_cover_image_content_type",
+        "required": false,
+        "type": "string",
+        "description": "[Pinterest] Content type of the cover image (e.g., image/jpeg)."
+      },
+      {
+        "name": "pinterest_cover_image_data",
+        "required": false,
+        "type": "string",
+        "description": "[Pinterest] Base64 encoded cover image data."
+      },
+      {
+        "name": "pinterest_cover_image_key_frame_time",
+        "required": false,
+        "type": "integer",
+        "description": "[Pinterest] Time in milliseconds of the video frame to use as cover."
+      },
+      {
+        "name": "subreddit",
+        "required": false,
+        "type": "string",
+        "description": "[Reddit] Name of the subreddit (without 'r/'). Required when platform includes reddit."
+      },
+      {
+        "name": "flair_id",
+        "required": false,
+        "type": "string",
+        "description": "[Reddit] ID of the flair to apply to the post."
+      }
+    ],
+    "responses": [
+      "200",
+      "202",
+      "400",
+      "401",
+      "403",
+      "404",
+      "429",
+      "500"
+    ]
+  },
+  {
+    "id": "uploadPhotos",
+    "method": "POST",
+    "path": "/upload_photos",
+    "baseUrl": "https://api.upload-post.com/api",
+    "fullUrl": "https://api.upload-post.com/api/upload_photos",
+    "summary": "Upload photos",
+    "description": "Upload photos (and mixed media for Instagram/Threads carousels) to social media platforms. Supports TikTok, Instagram, LinkedIn, Facebook, X (Twitter), Threads, Pinterest, Bluesky, and Reddit.",
+    "tags": [
+      "Content Upload"
+    ],
+    "source": "https://docs.upload-post.com/openapi.json",
+    "publicDocsUrl": "https://docs.upload-post.com/api/reference",
+    "topicFile": "by-topic/content-upload.md",
+    "required": [
+      "photos[]",
+      "platform[]",
+      "user"
+    ],
+    "parameters": [],
+    "requestProperties": [
+      {
+        "name": "user",
+        "required": true,
+        "type": "string",
+        "description": "User profile identifier."
+      },
+      {
+        "name": "platform[]",
+        "required": true,
+        "type": "array",
+        "description": "Platform(s) to upload to."
+      },
+      {
+        "name": "photos[]",
+        "required": true,
+        "type": "array",
+        "description": "Array of photo files. Instagram & Threads also accept videos for mixed carousels."
+      },
+      {
+        "name": "title",
+        "required": false,
+        "type": "string",
+        "description": "Default title/caption. Required for Reddit; optional for all other platforms. Platform-specific titles override this."
+      },
+      {
+        "name": "description",
+        "required": false,
+        "type": "string",
+        "description": "Optional extended text used on TikTok photo descriptions, LinkedIn commentary, Facebook descriptions, Pinterest notes, and Reddit bodies. Ignored elsewhere."
+      },
+      {
+        "name": "scheduled_date",
+        "required": false,
+        "type": "string",
+        "description": "ISO-8601 date/time to schedule publishing. Must be in the future (≤365 days). Cannot be used with `add_to_queue`."
+      },
+      {
+        "name": "timezone",
+        "required": false,
+        "type": "string",
+        "description": "IANA timezone identifier. Defaults to UTC."
+      },
+      {
+        "name": "async_upload",
+        "required": false,
+        "type": "boolean",
+        "description": "If true, returns immediately with a `request_id`."
+      },
+      {
+        "name": "add_to_queue",
+        "required": false,
+        "type": "boolean",
+        "description": "If true, schedules to next available queue slot. Cannot be used with `scheduled_date`."
+      },
+      {
+        "name": "first_comment",
+        "required": false,
+        "type": "string",
+        "description": "Automatically post a first comment after publishing."
+      },
+      {
+        "name": "instagram_first_comment",
+        "required": false,
+        "type": "string",
+        "description": "[Instagram] Platform-specific first comment."
+      },
+      {
+        "name": "facebook_first_comment",
+        "required": false,
+        "type": "string",
+        "description": "[Facebook] Platform-specific first comment."
+      },
+      {
+        "name": "x_first_comment",
+        "required": false,
+        "type": "string",
+        "description": "[X] Platform-specific first comment."
+      },
+      {
+        "name": "threads_first_comment",
+        "required": false,
+        "type": "string",
+        "description": "[Threads] Platform-specific first comment."
+      },
+      {
+        "name": "reddit_first_comment",
+        "required": false,
+        "type": "string",
+        "description": "[Reddit] Platform-specific first comment."
+      },
+      {
+        "name": "bluesky_first_comment",
+        "required": false,
+        "type": "string",
+        "description": "[Bluesky] Platform-specific first comment."
+      },
+      {
+        "name": "first_comment_media[]",
+        "required": false,
+        "type": "array",
+        "description": "One or more image files to attach to the first comment. Currently supported on Reddit. Not available for scheduled or queued posts."
+      },
+      {
+        "name": "instagram_title",
+        "required": false,
+        "type": "string",
+        "description": "[Instagram] Specific title."
+      },
+      {
+        "name": "facebook_title",
+        "required": false,
+        "type": "string",
+        "description": "[Facebook] Specific title."
+      },
+      {
+        "name": "tiktok_title",
+        "required": false,
+        "type": "string",
+        "description": "[TikTok] Specific title."
+      },
+      {
+        "name": "linkedin_title",
+        "required": false,
+        "type": "string",
+        "description": "[LinkedIn] Specific title."
+      },
+      {
+        "name": "x_title",
+        "required": false,
+        "type": "string",
+        "description": "[X] Specific title."
+      },
+      {
+        "name": "pinterest_title",
+        "required": false,
+        "type": "string",
+        "description": "[Pinterest] Specific title."
+      },
+      {
+        "name": "threads_title",
+        "required": false,
+        "type": "string",
+        "description": "[Threads] Specific title."
+      },
+      {
+        "name": "threads_topic_tag",
+        "required": false,
+        "type": "string",
+        "description": "[Threads] A topic tag for the post (1-50 characters). Cannot contain periods (.) or ampersands (&). One tag per post."
+      },
+      {
+        "name": "bluesky_title",
+        "required": false,
+        "type": "string",
+        "description": "[Bluesky] Specific text."
+      },
+      {
+        "name": "reddit_title",
+        "required": false,
+        "type": "string",
+        "description": "[Reddit] Specific title."
+      },
+      {
+        "name": "linkedin_description",
+        "required": false,
+        "type": "string",
+        "description": "[LinkedIn] Post commentary."
+      },
+      {
+        "name": "visibility",
+        "required": false,
+        "type": "string",
+        "description": "[LinkedIn] Visibility setting."
+      },
+      {
+        "name": "target_linkedin_page_id",
+        "required": false,
+        "type": "string",
+        "description": "[LinkedIn] LinkedIn page ID to upload to an organization."
+      },
+      {
+        "name": "facebook_page_id",
+        "required": false,
+        "type": "string",
+        "description": "[Facebook] Facebook Page ID. Required when platform includes facebook. Auto-detected if only one page is connected."
+      },
+      {
+        "name": "facebook_media_type",
+        "required": false,
+        "type": "FacebookPhotoMediaType",
+        "description": ""
+      },
+      {
+        "name": "x_long_text_as_post",
+        "required": false,
+        "type": "boolean",
+        "description": "[X] When true, publishes long text as a single post."
+      },
+      {
+        "name": "reply_settings",
+        "required": false,
+        "type": "XReplySettings",
+        "description": ""
+      },
+      {
+        "name": "geo_place_id",
+        "required": false,
+        "type": "string",
+        "description": "[X] Place ID for geographic location."
+      },
+      {
+        "name": "nullcast",
+        "required": false,
+        "type": "boolean",
+        "description": "[X] Publish without broadcasting."
+      },
+      {
+        "name": "for_super_followers_only",
+        "required": false,
+        "type": "boolean",
+        "description": "[X] Exclusive for super followers."
+      },
+      {
+        "name": "community_id",
+        "required": false,
+        "type": "string",
+        "description": "[X] Community ID."
+      },
+      {
+        "name": "share_with_followers",
+        "required": false,
+        "type": "boolean",
+        "description": "[X] Share community post with followers."
+      },
+      {
+        "name": "direct_message_deep_link",
+        "required": false,
+        "type": "string",
+        "description": "[X] Direct Message deep link."
+      },
+      {
+        "name": "tagged_user_ids",
+        "required": false,
+        "type": "array",
+        "description": "[X] User IDs to tag in photos (max 10)."
+      },
+      {
+        "name": "reply_to_id",
+        "required": false,
+        "type": "string",
+        "description": "[X] ID of the tweet to reply to."
+      },
+      {
+        "name": "exclude_reply_user_ids",
+        "required": false,
+        "type": "array",
+        "description": "[X] User IDs to exclude from replying."
+      },
+      {
+        "name": "post_mode",
+        "required": false,
+        "type": "TikTokPostMode",
+        "description": ""
+      },
+      {
+        "name": "privacy_level",
+        "required": false,
+        "type": "TikTokPrivacyLevel",
+        "description": ""
+      },
+      {
+        "name": "auto_add_music",
+        "required": false,
+        "type": "boolean",
+        "description": "[TikTok] Automatically add background music to photos."
+      },
+      {
+        "name": "disable_comment",
+        "required": false,
+        "type": "boolean",
+        "description": "[TikTok] Disable comments."
+      },
+      {
+        "name": "brand_content_toggle",
+        "required": false,
+        "type": "boolean",
+        "description": "[TikTok] Paid partnership promoting third-party brands."
+      },
+      {
+        "name": "brand_organic_toggle",
+        "required": false,
+        "type": "boolean",
+        "description": "[TikTok] Promoting the creator's own business."
+      },
+      {
+        "name": "photo_cover_index",
+        "required": false,
+        "type": "integer",
+        "description": "[TikTok] Index (0-based) of the photo to use as cover/thumbnail."
+      },
+      {
+        "name": "tiktok_description",
+        "required": false,
+        "type": "string",
+        "description": "[TikTok] Description for photo posts."
+      },
+      {
+        "name": "media_type",
+        "required": false,
+        "type": "InstagramPhotoMediaType",
+        "description": ""
+      },
+      {
+        "name": "collaborators",
+        "required": false,
+        "type": "string",
+        "description": "[Instagram] Comma-separated collaborator usernames."
+      },
+      {
+        "name": "user_tags",
+        "required": false,
+        "type": "string",
+        "description": "[Instagram] Comma-separated user tags."
+      },
+      {
+        "name": "location_id",
+        "required": false,
+        "type": "string",
+        "description": "[Instagram] Instagram location ID."
+      },
+      {
+        "name": "pinterest_description",
+        "required": false,
+        "type": "string",
+        "description": "[Pinterest] Pin description."
+      },
+      {
+        "name": "pinterest_board_id",
+        "required": false,
+        "type": "string",
+        "description": "[Pinterest] Board ID. Required when platform includes pinterest."
+      },
+      {
+        "name": "pinterest_alt_text",
+        "required": false,
+        "type": "string",
+        "description": "[Pinterest] Alt text for the image."
+      },
+      {
+        "name": "pinterest_link",
+        "required": false,
+        "type": "string",
+        "description": "[Pinterest] Destination link for the Pin."
+      },
+      {
+        "name": "subreddit",
+        "required": false,
+        "type": "string",
+        "description": "[Reddit] Subreddit name (without 'r/'). Required when platform includes reddit."
+      },
+      {
+        "name": "flair_id",
+        "required": false,
+        "type": "string",
+        "description": "[Reddit] Flair ID to apply."
+      }
+    ],
+    "responses": [
+      "200",
+      "202",
+      "400",
+      "401",
+      "403",
+      "404",
+      "429",
+      "500"
+    ]
+  },
+  {
+    "id": "uploadText",
+    "method": "POST",
+    "path": "/upload_text",
+    "baseUrl": "https://api.upload-post.com/api",
+    "fullUrl": "https://api.upload-post.com/api/upload_text",
+    "summary": "Upload text post",
+    "description": "Upload text-only posts to social media platforms. Supports X (Twitter), LinkedIn, Facebook, Threads, Reddit, and Bluesky. Automatically creates threads on X (>280 chars), Threads (>500 chars), and Bluesky (>300 chars).",
+    "tags": [
+      "Content Upload"
+    ],
+    "source": "https://docs.upload-post.com/openapi.json",
+    "publicDocsUrl": "https://docs.upload-post.com/api/reference",
+    "topicFile": "by-topic/content-upload.md",
+    "required": [
+      "platform[]",
+      "title",
+      "user"
+    ],
+    "parameters": [],
+    "requestProperties": [
+      {
+        "name": "user",
+        "required": true,
+        "type": "string",
+        "description": "User profile identifier."
+      },
+      {
+        "name": "platform[]",
+        "required": true,
+        "type": "array",
+        "description": "Platform(s) to upload to."
+      },
+      {
+        "name": "title",
+        "required": true,
+        "type": "string",
+        "description": "Default text content for the post."
+      },
+      {
+        "name": "description",
+        "required": false,
+        "type": "string",
+        "description": "Optional extended body used on Reddit (becomes post text). Ignored elsewhere."
+      },
+      {
+        "name": "scheduled_date",
+        "required": false,
+        "type": "string",
+        "description": "ISO-8601 date/time to schedule publishing. Cannot be used with `add_to_queue`."
+      },
+      {
+        "name": "timezone",
+        "required": false,
+        "type": "string",
+        "description": "IANA timezone identifier. Defaults to UTC."
+      },
+      {
+        "name": "async_upload",
+        "required": false,
+        "type": "boolean",
+        "description": "If true, returns immediately with a `request_id`."
+      },
+      {
+        "name": "add_to_queue",
+        "required": false,
+        "type": "boolean",
+        "description": "If true, schedules to next queue slot."
+      },
+      {
+        "name": "first_comment",
+        "required": false,
+        "type": "string",
+        "description": "Automatically post a first comment after publishing."
+      },
+      {
+        "name": "facebook_first_comment",
+        "required": false,
+        "type": "string",
+        "description": "[Facebook] Platform-specific first comment."
+      },
+      {
+        "name": "x_first_comment",
+        "required": false,
+        "type": "string",
+        "description": "[X] Platform-specific first comment."
+      },
+      {
+        "name": "threads_first_comment",
+        "required": false,
+        "type": "string",
+        "description": "[Threads] Platform-specific first comment."
+      },
+      {
+        "name": "reddit_first_comment",
+        "required": false,
+        "type": "string",
+        "description": "[Reddit] Platform-specific first comment."
+      },
+      {
+        "name": "bluesky_first_comment",
+        "required": false,
+        "type": "string",
+        "description": "[Bluesky] Platform-specific first comment."
+      },
+      {
+        "name": "first_comment_media[]",
+        "required": false,
+        "type": "array",
+        "description": "One or more image files to attach to the first comment. Currently supported on Reddit. Not available for scheduled or queued posts."
+      },
+      {
+        "name": "linkedin_title",
+        "required": false,
+        "type": "string",
+        "description": "[LinkedIn] Specific text for LinkedIn."
+      },
+      {
+        "name": "x_title",
+        "required": false,
+        "type": "string",
+        "description": "[X] Specific text for X."
+      },
+      {
+        "name": "facebook_title",
+        "required": false,
+        "type": "string",
+        "description": "[Facebook] Specific text for Facebook."
+      },
+      {
+        "name": "threads_title",
+        "required": false,
+        "type": "string",
+        "description": "[Threads] Specific text for Threads."
+      },
+      {
+        "name": "threads_topic_tag",
+        "required": false,
+        "type": "string",
+        "description": "[Threads] A topic tag for the post (1-50 characters). Cannot contain periods (.) or ampersands (&). One tag per post."
+      },
+      {
+        "name": "bluesky_title",
+        "required": false,
+        "type": "string",
+        "description": "[Bluesky] Specific text for Bluesky."
+      },
+      {
+        "name": "target_linkedin_page_id",
+        "required": false,
+        "type": "string",
+        "description": "[LinkedIn] LinkedIn page ID to post to an organization page."
+      },
+      {
+        "name": "x_long_text_as_post",
+        "required": false,
+        "type": "boolean",
+        "description": "[X] When true, long text is published as a single post."
+      },
+      {
+        "name": "reply_settings",
+        "required": false,
+        "type": "XReplySettings",
+        "description": ""
+      },
+      {
+        "name": "quote_tweet_id",
+        "required": false,
+        "type": "string",
+        "description": "[X] ID of the tweet to quote. Mutually exclusive with `card_uri`, `poll_options`, and `direct_message_deep_link`."
+      },
+      {
+        "name": "geo_place_id",
+        "required": false,
+        "type": "string",
+        "description": "[X] Place ID for geographic location."
+      },
+      {
+        "name": "nullcast",
+        "required": false,
+        "type": "boolean",
+        "description": "[X] Publish without broadcasting."
+      },
+      {
+        "name": "for_super_followers_only",
+        "required": false,
+        "type": "boolean",
+        "description": "[X] Exclusive for super followers."
+      },
+      {
+        "name": "community_id",
+        "required": false,
+        "type": "string",
+        "description": "[X] Community ID."
+      },
+      {
+        "name": "share_with_followers",
+        "required": false,
+        "type": "boolean",
+        "description": "[X] Share community post with followers."
+      },
+      {
+        "name": "direct_message_deep_link",
+        "required": false,
+        "type": "string",
+        "description": "[X] Direct Message deep link. Mutually exclusive with `card_uri`, `quote_tweet_id`, and `poll_options`."
+      },
+      {
+        "name": "card_uri",
+        "required": false,
+        "type": "string",
+        "description": "[X] Card URI for Twitter Cards/ads. Mutually exclusive with `quote_tweet_id`, `direct_message_deep_link`, and `poll_options`."
+      },
+      {
+        "name": "poll_options",
+        "required": false,
+        "type": "array",
+        "description": "[X] Array of poll options (2-4 options, max 25 chars each). Mutually exclusive with `card_uri`, `quote_tweet_id`, and `direct_message_deep_link`."
+      },
+      {
+        "name": "poll_duration",
+        "required": false,
+        "type": "integer",
+        "description": "[X] Poll duration in minutes (5-10080). Requires `poll_options`."
+      },
+      {
+        "name": "poll_reply_settings",
+        "required": false,
+        "type": "string",
+        "description": "[X] Who can reply to poll. Requires `poll_options`."
+      },
+      {
+        "name": "reply_to_id",
+        "required": false,
+        "type": "string",
+        "description": "[X/Bluesky] ID or URL of the post to reply to."
+      },
+      {
+        "name": "exclude_reply_user_ids",
+        "required": false,
+        "type": "array",
+        "description": "[X] User IDs to exclude from replying. Requires `reply_to_id`."
+      },
+      {
+        "name": "facebook_page_id",
+        "required": false,
+        "type": "string",
+        "description": "[Facebook] Facebook Page ID. Required when platform includes facebook. Auto-detected if only one page is connected."
+      },
+      {
+        "name": "facebook_link_url",
+        "required": false,
+        "type": "string",
+        "description": "[Facebook] Optional URL for link preview in text posts. Overrides generic `link_url` for Facebook."
+      },
+      {
+        "name": "link_url",
+        "required": false,
+        "type": "string",
+        "description": "Generic URL to include as a link preview card. Works for LinkedIn, Bluesky, Facebook, and Reddit. Platform-specific parameters (`linkedin_link_url`, `bluesky_link_url`, `facebook_link_url`, `reddit_link_url`) take priority."
+      },
+      {
+        "name": "linkedin_link_url",
+        "required": false,
+        "type": "string",
+        "description": "[LinkedIn] Optional URL for link preview card in text posts. Overrides generic `link_url` for LinkedIn."
+      },
+      {
+        "name": "bluesky_link_url",
+        "required": false,
+        "type": "string",
+        "description": "[Bluesky] Optional URL for external embed link preview in text posts. Overrides generic `link_url` for Bluesky."
+      },
+      {
+        "name": "reddit_link_url",
+        "required": false,
+        "type": "string",
+        "description": "[Reddit] URL for creating a Reddit link post with a URL preview card. Overrides generic `link_url` for Reddit."
+      },
+      {
+        "name": "threads_long_text_as_post",
+        "required": false,
+        "type": "boolean",
+        "description": "[Threads] If true, long text is a single post. If false, creates a thread if >500 chars."
+      },
+      {
+        "name": "subreddit",
+        "required": false,
+        "type": "string",
+        "description": "[Reddit] Subreddit name (without 'r/'). Required when platform includes reddit."
+      },
+      {
+        "name": "flair_id",
+        "required": false,
+        "type": "string",
+        "description": "[Reddit] Flair template ID."
+      }
+    ],
+    "responses": [
+      "200",
+      "202",
+      "400",
+      "401",
+      "403",
+      "404",
+      "429",
+      "500"
+    ]
+  },
+  {
+    "id": "uploadDocument",
+    "method": "POST",
+    "path": "/upload_document",
+    "baseUrl": "https://api.upload-post.com/api",
+    "fullUrl": "https://api.upload-post.com/api/upload_document",
+    "summary": "Upload document",
+    "description": "Upload documents (PDF, PPT, PPTX, DOC, DOCX) to LinkedIn as native document posts displayed as carousels/viewers. Only LinkedIn is supported.",
+    "tags": [
+      "Content Upload"
+    ],
+    "source": "https://docs.upload-post.com/openapi.json",
+    "publicDocsUrl": "https://docs.upload-post.com/api/reference",
+    "topicFile": "by-topic/content-upload.md",
+    "required": [
+      "document",
+      "platform[]",
+      "title",
+      "user"
+    ],
+    "parameters": [],
+    "requestProperties": [
+      {
+        "name": "user",
+        "required": true,
+        "type": "string",
+        "description": "User profile identifier."
+      },
+      {
+        "name": "platform[]",
+        "required": true,
+        "type": "array",
+        "description": "Must be [\"linkedin\"]. Only LinkedIn supports document uploads."
+      },
+      {
+        "name": "document",
+        "required": true,
+        "type": "string",
+        "description": "The document file (PDF, PPT, PPTX, DOC, DOCX) or a public URL. Max 100MB, 300 pages."
+      },
+      {
+        "name": "title",
+        "required": true,
+        "type": "string",
+        "description": "Document title displayed on the post."
+      },
+      {
+        "name": "description",
+        "required": false,
+        "type": "string",
+        "description": "Post commentary/text that appears above the document."
+      },
+      {
+        "name": "visibility",
+        "required": false,
+        "type": "LinkedInVisibility",
+        "description": ""
+      },
+      {
+        "name": "target_linkedin_page_id",
+        "required": false,
+        "type": "string",
+        "description": "LinkedIn page ID to post to a company page instead of personal profile."
+      }
+    ],
+    "responses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "429",
+      "500"
+    ]
+  },
+  {
+    "id": "getUploadStatus",
+    "method": "GET",
+    "path": "/uploadposts/status",
+    "baseUrl": "https://api.upload-post.com/api",
+    "fullUrl": "https://api.upload-post.com/api/uploadposts/status",
+    "summary": "Get upload status",
+    "description": "Check the status of asynchronous uploads (via `request_id`) or scheduled posts (via `job_id`). At least one parameter must be provided.",
+    "tags": [
+      "Upload Management"
+    ],
+    "source": "https://docs.upload-post.com/openapi.json",
+    "publicDocsUrl": "https://docs.upload-post.com/api/reference",
+    "topicFile": "by-topic/upload-management.md",
+    "required": [],
+    "parameters": [
+      {
+        "name": "request_id",
+        "in": "query",
+        "required": false,
+        "type": "string",
+        "description": "The request identifier returned by upload endpoints when `async_upload=true`."
+      },
+      {
+        "name": "job_id",
+        "in": "query",
+        "required": false,
+        "type": "string",
+        "description": "The job identifier returned by scheduled posts (with `scheduled_date`)."
+      }
+    ],
+    "requestProperties": [],
+    "responses": [
+      "200",
+      "400",
+      "401",
+      "500"
+    ]
+  },
+  {
+    "id": "getUploadHistory",
+    "method": "GET",
+    "path": "/uploadposts/history",
+    "baseUrl": "https://api.upload-post.com/api",
+    "fullUrl": "https://api.upload-post.com/api/uploadposts/history",
+    "summary": "Get upload history",
+    "description": "Retrieve a paginated list of past uploads across all platforms, ordered most recent first.",
+    "tags": [
+      "Upload Management"
+    ],
+    "source": "https://docs.upload-post.com/openapi.json",
+    "publicDocsUrl": "https://docs.upload-post.com/api/reference",
+    "topicFile": "by-topic/upload-management.md",
+    "required": [],
+    "parameters": [
+      {
+        "name": null,
+        "in": null,
+        "required": false,
+        "type": "",
+        "description": ""
+      },
+      {
+        "name": null,
+        "in": null,
+        "required": false,
+        "type": "",
+        "description": ""
+      }
+    ],
+    "requestProperties": [],
+    "responses": [
+      "200",
+      "400",
+      "401",
+      "500"
+    ]
+  },
+  {
+    "id": "listScheduledPosts",
+    "method": "GET",
+    "path": "/uploadposts/schedule",
+    "baseUrl": "https://api.upload-post.com/api",
+    "fullUrl": "https://api.upload-post.com/api/uploadposts/schedule",
+    "summary": "List scheduled posts",
+    "description": "Retrieve all pending scheduled posts for the authenticated user.",
+    "tags": [
+      "Upload Management"
+    ],
+    "source": "https://docs.upload-post.com/openapi.json",
+    "publicDocsUrl": "https://docs.upload-post.com/api/reference",
+    "topicFile": "by-topic/upload-management.md",
+    "required": [],
+    "parameters": [],
+    "requestProperties": [],
+    "responses": [
+      "200",
+      "401"
+    ]
+  },
+  {
+    "id": "cancelScheduledPost",
+    "method": "DELETE",
+    "path": "/uploadposts/schedule/{job_id}",
+    "baseUrl": "https://api.upload-post.com/api",
+    "fullUrl": "https://api.upload-post.com/api/uploadposts/schedule/{job_id}",
+    "summary": "Cancel a scheduled post",
+    "description": "Cancel and delete a scheduled post and its associated assets.",
+    "tags": [
+      "Upload Management"
+    ],
+    "source": "https://docs.upload-post.com/openapi.json",
+    "publicDocsUrl": "https://docs.upload-post.com/api/reference",
+    "topicFile": "by-topic/upload-management.md",
+    "required": [],
+    "parameters": [
+      {
+        "name": null,
+        "in": null,
+        "required": false,
+        "type": "",
+        "description": ""
+      }
+    ],
+    "requestProperties": [],
+    "responses": [
+      "200",
+      "401",
+      "404",
+      "500"
+    ]
+  },
+  {
+    "id": "editScheduledPost",
+    "method": "PATCH",
+    "path": "/uploadposts/schedule/{job_id}",
+    "baseUrl": "https://api.upload-post.com/api",
+    "fullUrl": "https://api.upload-post.com/api/uploadposts/schedule/{job_id}",
+    "summary": "Edit a scheduled post",
+    "description": "Update the scheduled date, title, or caption of a scheduled post.",
+    "tags": [
+      "Upload Management"
+    ],
+    "source": "https://docs.upload-post.com/openapi.json",
+    "publicDocsUrl": "https://docs.upload-post.com/api/reference",
+    "topicFile": "by-topic/upload-management.md",
+    "required": [],
+    "parameters": [
+      {
+        "name": null,
+        "in": null,
+        "required": false,
+        "type": "",
+        "description": ""
+      }
+    ],
+    "requestProperties": [
+      {
+        "name": "scheduled_date",
+        "required": false,
+        "type": "string",
+        "description": "New ISO-8601 date/time in UTC. Must be in the future and within 1 year."
+      },
+      {
+        "name": "title",
+        "required": false,
+        "type": "string",
+        "description": "New post title/caption."
+      },
+      {
+        "name": "caption",
+        "required": false,
+        "type": "string",
+        "description": "New caption/description."
+      }
+    ],
+    "responses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "500"
+    ]
+  },
+  {
+    "id": "getQueueSettings",
+    "method": "GET",
+    "path": "/uploadposts/queue/settings",
+    "baseUrl": "https://api.upload-post.com/api",
+    "fullUrl": "https://api.upload-post.com/api/uploadposts/queue/settings",
+    "summary": "Get queue settings",
+    "description": "Retrieve the current queue configuration (timezone, time slots, active days) for a profile.",
+    "tags": [
+      "Queue System"
+    ],
+    "source": "https://docs.upload-post.com/openapi.json",
+    "publicDocsUrl": "https://docs.upload-post.com/api/reference",
+    "topicFile": "by-topic/scheduling-queue-async.md",
+    "required": [],
+    "parameters": [
+      {
+        "name": null,
+        "in": null,
+        "required": false,
+        "type": "",
+        "description": ""
+      }
+    ],
+    "requestProperties": [],
+    "responses": [
+      "200",
+      "401"
+    ]
+  },
+  {
+    "id": "updateQueueSettings",
+    "method": "POST",
+    "path": "/uploadposts/queue/settings",
+    "baseUrl": "https://api.upload-post.com/api",
+    "fullUrl": "https://api.upload-post.com/api/uploadposts/queue/settings",
+    "summary": "Update queue settings",
+    "description": "Update the queue configuration (timezone, time slots, active days) for a profile.",
+    "tags": [
+      "Queue System"
+    ],
+    "source": "https://docs.upload-post.com/openapi.json",
+    "publicDocsUrl": "https://docs.upload-post.com/api/reference",
+    "topicFile": "by-topic/scheduling-queue-async.md",
+    "required": [
+      "profile_username"
+    ],
+    "parameters": [],
+    "requestProperties": [
+      {
+        "name": "profile_username",
+        "required": true,
+        "type": "string",
+        "description": "The profile to update settings for."
+      },
+      {
+        "name": "timezone",
+        "required": false,
+        "type": "string",
+        "description": "IANA timezone (e.g., 'Europe/London')."
+      },
+      {
+        "name": "slots",
+        "required": false,
+        "type": "array",
+        "description": "Array of slot objects. Max 24 slots."
+      },
+      {
+        "name": "days_of_week",
+        "required": false,
+        "type": "array",
+        "description": "Active days: 0=Monday, 1=Tuesday, ..., 6=Sunday."
+      }
+    ],
+    "responses": [
+      "200",
+      "401"
+    ]
+  },
+  {
+    "id": "getQueuePreview",
+    "method": "GET",
+    "path": "/uploadposts/queue/preview",
+    "baseUrl": "https://api.upload-post.com/api",
+    "fullUrl": "https://api.upload-post.com/api/uploadposts/queue/preview",
+    "summary": "Preview queue slots",
+    "description": "Preview the next upcoming queue slots and their availability for a profile.",
+    "tags": [
+      "Queue System"
+    ],
+    "source": "https://docs.upload-post.com/openapi.json",
+    "publicDocsUrl": "https://docs.upload-post.com/api/reference",
+    "topicFile": "by-topic/scheduling-queue-async.md",
+    "required": [],
+    "parameters": [
+      {
+        "name": null,
+        "in": null,
+        "required": false,
+        "type": "",
+        "description": ""
+      },
+      {
+        "name": "count",
+        "in": "query",
+        "required": false,
+        "type": "integer",
+        "description": "Number of slots to return."
+      }
+    ],
+    "requestProperties": [],
+    "responses": [
+      "200",
+      "401"
+    ]
+  },
+  {
+    "id": "getNextQueueSlot",
+    "method": "GET",
+    "path": "/uploadposts/queue/next-slot",
+    "baseUrl": "https://api.upload-post.com/api",
+    "fullUrl": "https://api.upload-post.com/api/uploadposts/queue/next-slot",
+    "summary": "Get next available queue slot",
+    "description": "Get the next available queue slot for a profile.",
+    "tags": [
+      "Queue System"
+    ],
+    "source": "https://docs.upload-post.com/openapi.json",
+    "publicDocsUrl": "https://docs.upload-post.com/api/reference",
+    "topicFile": "by-topic/scheduling-queue-async.md",
+    "required": [],
+    "parameters": [
+      {
+        "name": null,
+        "in": null,
+        "required": false,
+        "type": "",
+        "description": ""
+      }
+    ],
+    "requestProperties": [],
+    "responses": [
+      "200",
+      "401"
+    ]
+  },
+  {
+    "id": "getAnalytics",
+    "method": "GET",
+    "path": "/analytics/{profile_username}",
+    "baseUrl": "https://api.upload-post.com/api",
+    "fullUrl": "https://api.upload-post.com/api/analytics/{profile_username}",
+    "summary": "Get analytics",
+    "description": "Retrieve analytics data for a user profile across one or more social media platforms. Returns metrics like followers, views, impressions, reach, and time series data. Note: Instagram's API renamed 'impressions' to 'views'; both fields are returned for compatibility.",
+    "tags": [
+      "Platform Integration"
+    ],
+    "source": "https://docs.upload-post.com/openapi.json",
+    "publicDocsUrl": "https://docs.upload-post.com/api/reference",
+    "topicFile": "by-topic/platform-data.md",
+    "required": [],
+    "parameters": [
+      {
+        "name": "profile_username",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": "The unique username of the profile."
+      },
+      {
+        "name": "platforms",
+        "in": "query",
+        "required": true,
+        "type": "string",
+        "description": "Comma-separated list of platforms: instagram, tiktok, linkedin, facebook, x, youtube, threads, pinterest, reddit, bluesky."
+      },
+      {
+        "name": "page_id",
+        "in": "query",
+        "required": false,
+        "type": "string",
+        "description": "Required for Facebook analytics. The Facebook Page ID."
+      },
+      {
+        "name": "page_urn",
+        "in": "query",
+        "required": false,
+        "type": "string",
+        "description": "Optional for LinkedIn. Defaults to personal profile. Use Organization URN/ID for pages."
+      }
+    ],
+    "requestProperties": [],
+    "responses": [
+      "200",
+      "400",
+      "401",
+      "404",
+      "500"
+    ]
+  },
+  {
+    "id": "getFacebookPages",
+    "method": "GET",
+    "path": "/uploadposts/facebook/pages",
+    "baseUrl": "https://api.upload-post.com/api",
+    "fullUrl": "https://api.upload-post.com/api/uploadposts/facebook/pages",
+    "summary": "Get Facebook pages",
+    "description": "Retrieve Facebook page IDs associated with user profiles. Use the page_id for posting to Facebook pages.",
+    "tags": [
+      "Platform Integration"
+    ],
+    "source": "https://docs.upload-post.com/openapi.json",
+    "publicDocsUrl": "https://docs.upload-post.com/api/reference",
+    "topicFile": "by-topic/platform-data.md",
+    "required": [],
+    "parameters": [
+      {
+        "name": "profile",
+        "in": "query",
+        "required": false,
+        "type": "string",
+        "description": "Profile username. If not specified, returns all pages for your account."
+      }
+    ],
+    "requestProperties": [],
+    "responses": [
+      "200",
+      "401",
+      "404"
+    ]
+  },
+  {
+    "id": "getLinkedInPages",
+    "method": "GET",
+    "path": "/uploadposts/linkedin/pages",
+    "baseUrl": "https://api.upload-post.com/api",
+    "fullUrl": "https://api.upload-post.com/api/uploadposts/linkedin/pages",
+    "summary": "Get LinkedIn pages",
+    "description": "Retrieve LinkedIn company pages associated with the authenticated user's accounts. Use the page ID for posting to LinkedIn organization pages.",
+    "tags": [
+      "Platform Integration"
+    ],
+    "source": "https://docs.upload-post.com/openapi.json",
+    "publicDocsUrl": "https://docs.upload-post.com/api/reference",
+    "topicFile": "by-topic/platform-data.md",
+    "required": [],
+    "parameters": [
+      {
+        "name": "profile",
+        "in": "query",
+        "required": false,
+        "type": "string",
+        "description": "Profile username. If omitted, returns pages from all connected LinkedIn accounts."
+      }
+    ],
+    "requestProperties": [],
+    "responses": [
+      "200",
+      "401",
+      "404",
+      "500"
+    ]
+  },
+  {
+    "id": "getPinterestBoards",
+    "method": "GET",
+    "path": "/uploadposts/pinterest/boards",
+    "baseUrl": "https://api.upload-post.com/api",
+    "fullUrl": "https://api.upload-post.com/api/uploadposts/pinterest/boards",
+    "summary": "Get Pinterest boards",
+    "description": "Retrieve all Pinterest boards (public and secret) from a connected Pinterest account. Use the board ID for posting Pins.",
+    "tags": [
+      "Platform Integration"
+    ],
+    "source": "https://docs.upload-post.com/openapi.json",
+    "publicDocsUrl": "https://docs.upload-post.com/api/reference",
+    "topicFile": "by-topic/platform-data.md",
+    "required": [],
+    "parameters": [
+      {
+        "name": "profile",
+        "in": "query",
+        "required": false,
+        "type": "string",
+        "description": "Profile username. If omitted, uses the first connected Pinterest account."
+      }
+    ],
+    "requestProperties": [],
+    "responses": [
+      "200",
+      "401"
+    ]
+  },
+  {
+    "id": "getRedditDetailedPosts",
+    "method": "GET",
+    "path": "/uploadposts/reddit/detailed-posts",
+    "baseUrl": "https://api.upload-post.com/api",
+    "fullUrl": "https://api.upload-post.com/api/uploadposts/reddit/detailed-posts",
+    "summary": "Get Reddit detailed posts",
+    "description": "Retrieve detailed posts from a Reddit account connected to a profile, including complete media information. Supports automatic pagination up to 2000 posts.",
+    "tags": [
+      "Platform Integration"
+    ],
+    "source": "https://docs.upload-post.com/openapi.json",
+    "publicDocsUrl": "https://docs.upload-post.com/api/reference",
+    "topicFile": "by-topic/platform-data.md",
+    "required": [],
+    "parameters": [
+      {
+        "name": "profile_username",
+        "in": "query",
+        "required": true,
+        "type": "string",
+        "description": "Username of the profile with a connected Reddit account."
+      }
+    ],
+    "requestProperties": [],
+    "responses": [
+      "200",
+      "400",
+      "500"
+    ]
+  },
+  {
+    "id": "getCurrentUser",
+    "method": "GET",
+    "path": "/uploadposts/me",
+    "baseUrl": "https://api.upload-post.com/api",
+    "fullUrl": "https://api.upload-post.com/api/uploadposts/me",
+    "summary": "Get current user",
+    "description": "Verify the validity of your API key and retrieve basic account information including email and subscription plan.",
+    "tags": [
+      "Authentication"
+    ],
+    "source": "https://docs.upload-post.com/openapi.json",
+    "publicDocsUrl": "https://docs.upload-post.com/api/reference",
+    "topicFile": "by-topic/user-management-jwt.md",
+    "required": [],
+    "parameters": [],
+    "requestProperties": [],
+    "responses": [
+      "200",
+      "401",
+      "500"
+    ]
+  },
+  {
+    "id": "createUserProfile",
+    "method": "POST",
+    "path": "/uploadposts/users",
+    "baseUrl": "https://api.upload-post.com/api",
+    "fullUrl": "https://api.upload-post.com/api/uploadposts/users",
+    "summary": "Create user profile",
+    "description": "Create a new user profile linked to a user on your platform.",
+    "tags": [
+      "User Management"
+    ],
+    "source": "https://docs.upload-post.com/openapi.json",
+    "publicDocsUrl": "https://docs.upload-post.com/api/reference",
+    "topicFile": "by-topic/user-management-jwt.md",
+    "required": [
+      "username"
+    ],
+    "parameters": [],
+    "requestProperties": [
+      {
+        "name": "username",
+        "required": true,
+        "type": "string",
+        "description": "A unique identifier for the user on your platform."
+      }
+    ],
+    "responses": [
+      "201",
+      "400",
+      "401",
+      "409"
+    ]
+  },
+  {
+    "id": "listUserProfiles",
+    "method": "GET",
+    "path": "/uploadposts/users",
+    "baseUrl": "https://api.upload-post.com/api",
+    "fullUrl": "https://api.upload-post.com/api/uploadposts/users",
+    "summary": "List user profiles",
+    "description": "Retrieve a list of all user profiles created under your API key.",
+    "tags": [
+      "User Management"
+    ],
+    "source": "https://docs.upload-post.com/openapi.json",
+    "publicDocsUrl": "https://docs.upload-post.com/api/reference",
+    "topicFile": "by-topic/user-management-jwt.md",
+    "required": [],
+    "parameters": [],
+    "requestProperties": [],
+    "responses": [
+      "200",
+      "401"
+    ]
+  },
+  {
+    "id": "deleteUserProfile",
+    "method": "DELETE",
+    "path": "/uploadposts/users",
+    "baseUrl": "https://api.upload-post.com/api",
+    "fullUrl": "https://api.upload-post.com/api/uploadposts/users",
+    "summary": "Delete user profile",
+    "description": "Delete an existing user profile and its associated data (including social connections).",
+    "tags": [
+      "User Management"
+    ],
+    "source": "https://docs.upload-post.com/openapi.json",
+    "publicDocsUrl": "https://docs.upload-post.com/api/reference",
+    "topicFile": "by-topic/user-management-jwt.md",
+    "required": [
+      "username"
+    ],
+    "parameters": [],
+    "requestProperties": [
+      {
+        "name": "username",
+        "required": true,
+        "type": "string",
+        "description": "The unique identifier of the profile to delete."
+      }
+    ],
+    "responses": [
+      "200",
+      "400",
+      "401",
+      "404"
+    ]
+  },
+  {
+    "id": "getUserProfile",
+    "method": "GET",
+    "path": "/uploadposts/users/{username}",
+    "baseUrl": "https://api.upload-post.com/api",
+    "fullUrl": "https://api.upload-post.com/api/uploadposts/users/{username}",
+    "summary": "Get a specific user profile",
+    "description": "Retrieve information for a single user profile by username.",
+    "tags": [
+      "User Management"
+    ],
+    "source": "https://docs.upload-post.com/openapi.json",
+    "publicDocsUrl": "https://docs.upload-post.com/api/reference",
+    "topicFile": "by-topic/user-management-jwt.md",
+    "required": [],
+    "parameters": [
+      {
+        "name": "username",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": "The username of the profile to retrieve."
+      }
+    ],
+    "requestProperties": [],
+    "responses": [
+      "200",
+      "404"
+    ]
+  },
+  {
+    "id": "generateJwt",
+    "method": "POST",
+    "path": "/uploadposts/users/generate-jwt",
+    "baseUrl": "https://api.upload-post.com/api",
+    "fullUrl": "https://api.upload-post.com/api/uploadposts/users/generate-jwt",
+    "summary": "Generate JWT URL",
+    "description": "Generate a secure, single-use URL containing a JWT. Users visit this URL to link their social media accounts. The JWT is valid for 48 hours.",
+    "tags": [
+      "Authentication"
+    ],
+    "source": "https://docs.upload-post.com/openapi.json",
+    "publicDocsUrl": "https://docs.upload-post.com/api/reference",
+    "topicFile": "by-topic/user-management-jwt.md",
+    "required": [
+      "username"
+    ],
+    "parameters": [],
+    "requestProperties": [
+      {
+        "name": "username",
+        "required": true,
+        "type": "string",
+        "description": "The user profile identifier for which the JWT is generated."
+      },
+      {
+        "name": "redirect_url",
+        "required": false,
+        "type": "string",
+        "description": "URL to redirect to after linking social accounts."
+      },
+      {
+        "name": "logo_image",
+        "required": false,
+        "type": "string",
+        "description": "URL to a logo image for branding the linking page."
+      },
+      {
+        "name": "redirect_button_text",
+        "required": false,
+        "type": "string",
+        "description": "Text for the redirect button after linking."
+      },
+      {
+        "name": "connect_title",
+        "required": false,
+        "type": "string",
+        "description": "Custom title for the connection page."
+      },
+      {
+        "name": "connect_description",
+        "required": false,
+        "type": "string",
+        "description": "Custom description for the connection page."
+      },
+      {
+        "name": "platforms",
+        "required": false,
+        "type": "array",
+        "description": "Platforms to show for connection. Defaults to all supported platforms."
+      },
+      {
+        "name": "show_calendar",
+        "required": false,
+        "type": "boolean",
+        "description": "Whether to show the calendar view on the connection page."
+      }
+    ],
+    "responses": [
+      "200",
+      "400",
+      "401",
+      "404"
+    ]
+  },
+  {
+    "id": "validateJwt",
+    "method": "POST",
+    "path": "/uploadposts/users/validate-jwt",
+    "baseUrl": "https://api.upload-post.com/api",
+    "fullUrl": "https://api.upload-post.com/api/uploadposts/users/validate-jwt",
+    "summary": "Validate JWT",
+    "description": "Validate a JWT token and return the associated profile details. Uses Bearer token authentication.",
+    "tags": [
+      "Authentication"
+    ],
+    "source": "https://docs.upload-post.com/openapi.json",
+    "publicDocsUrl": "https://docs.upload-post.com/api/reference",
+    "topicFile": "by-topic/user-management-jwt.md",
+    "required": [],
+    "parameters": [],
+    "requestProperties": [],
+    "responses": [
+      "200",
+      "401"
+    ]
+  },
+  {
+    "id": "createFfmpegJob",
+    "method": "POST",
+    "path": "/uploadposts/ffmpeg/jobs/upload",
+    "baseUrl": "https://api.upload-post.com/api",
+    "fullUrl": "https://api.upload-post.com/api/uploadposts/ffmpeg/jobs/upload",
+    "summary": "Create FFmpeg job",
+    "description": "Submit a media processing job using an FFmpeg command template. Supports single or multiple input files via multipart upload or JSON with URLs. Jobs are asynchronous — poll the status endpoint until finished.",
+    "tags": [
+      "FFmpeg Editor"
+    ],
+    "source": "https://docs.upload-post.com/openapi.json",
+    "publicDocsUrl": "https://docs.upload-post.com/api/reference",
+    "topicFile": "by-topic/ffmpeg-webhooks.md",
+    "required": [
+      "file",
+      "full_command",
+      "output_extension"
+    ],
+    "parameters": [],
+    "requestProperties": [
+      {
+        "name": "file",
+        "required": true,
+        "type": "string",
+        "description": "Primary media file to process. Referenced as {input} or {input0}."
+      },
+      {
+        "name": "file1",
+        "required": false,
+        "type": "string",
+        "description": "Second input file. Referenced as {input1}."
+      },
+      {
+        "name": "file2",
+        "required": false,
+        "type": "string",
+        "description": "Third input file. Referenced as {input2}."
+      },
+      {
+        "name": "full_command",
+        "required": true,
+        "type": "string",
+        "description": "FFmpeg command template using {input}/{input0}, {input1}, etc. and {output} placeholders. Example: 'ffmpeg -y -i {input} -c:v libx264 -crf 23 {output}'"
+      },
+      {
+        "name": "output_extension",
+        "required": true,
+        "type": "string",
+        "description": "Desired output file extension (e.g., 'mp4', 'wav', 'mp3', 'mov', 'webm')."
+      },
+      {
+        "name": "publish",
+        "required": false,
+        "type": "boolean",
+        "description": "Whether to publish the result."
+      }
+    ],
+    "responses": [
+      "202",
+      "400",
+      "401",
+      "429",
+      "500"
+    ]
+  },
+  {
+    "id": "getFfmpegJobStatus",
+    "method": "GET",
+    "path": "/uploadposts/ffmpeg/jobs/{job_id}",
+    "baseUrl": "https://api.upload-post.com/api",
+    "fullUrl": "https://api.upload-post.com/api/uploadposts/ffmpeg/jobs/{job_id}",
+    "summary": "Get FFmpeg job status",
+    "description": "Poll the status of an FFmpeg processing job. Statuses: PENDING, PROCESSING, FINISHED, ERROR.",
+    "tags": [
+      "FFmpeg Editor"
+    ],
+    "source": "https://docs.upload-post.com/openapi.json",
+    "publicDocsUrl": "https://docs.upload-post.com/api/reference",
+    "topicFile": "by-topic/ffmpeg-webhooks.md",
+    "required": [],
+    "parameters": [
+      {
+        "name": null,
+        "in": null,
+        "required": false,
+        "type": "",
+        "description": ""
+      }
+    ],
+    "requestProperties": [],
+    "responses": [
+      "200",
+      "401",
+      "404"
+    ]
+  },
+  {
+    "id": "downloadFfmpegResult",
+    "method": "GET",
+    "path": "/uploadposts/ffmpeg/jobs/{job_id}/download",
+    "baseUrl": "https://api.upload-post.com/api",
+    "fullUrl": "https://api.upload-post.com/api/uploadposts/ffmpeg/jobs/{job_id}/download",
+    "summary": "Download FFmpeg result",
+    "description": "Download the processed file when job status is FINISHED. Returns binary media with appropriate Content-Type and Content-Disposition headers.",
+    "tags": [
+      "FFmpeg Editor"
+    ],
+    "source": "https://docs.upload-post.com/openapi.json",
+    "publicDocsUrl": "https://docs.upload-post.com/api/reference",
+    "topicFile": "by-topic/ffmpeg-webhooks.md",
+    "required": [],
+    "parameters": [
+      {
+        "name": null,
+        "in": null,
+        "required": false,
+        "type": "",
+        "description": ""
+      }
+    ],
+    "requestProperties": [],
+    "responses": [
+      "200",
+      "401",
+      "404"
+    ]
+  },
+  {
+    "id": "getFfmpegConsumption",
+    "method": "GET",
+    "path": "/uploadposts/ffmpeg/consumption",
+    "baseUrl": "https://api.upload-post.com/api",
+    "fullUrl": "https://api.upload-post.com/api/uploadposts/ffmpeg/consumption",
+    "summary": "Get FFmpeg consumption",
+    "description": "Check your current FFmpeg usage, remaining quota, and processing history for the current month.",
+    "tags": [
+      "FFmpeg Editor"
+    ],
+    "source": "https://docs.upload-post.com/openapi.json",
+    "publicDocsUrl": "https://docs.upload-post.com/api/reference",
+    "topicFile": "by-topic/ffmpeg-webhooks.md",
+    "required": [],
+    "parameters": [],
+    "requestProperties": [],
+    "responses": [
+      "200",
+      "401"
+    ]
+  },
+  {
+    "id": "configureNotifications",
+    "method": "POST",
+    "path": "/uploadposts/users/notifications",
+    "baseUrl": "https://api.upload-post.com/api",
+    "fullUrl": "https://api.upload-post.com/api/uploadposts/users/notifications",
+    "summary": "Configure webhook notifications",
+    "description": "Configure notification preferences for upload events. Supports webhook (POST to your URL) and Telegram notifications.",
+    "tags": [
+      "Webhooks"
+    ],
+    "source": "https://docs.upload-post.com/openapi.json",
+    "publicDocsUrl": "https://docs.upload-post.com/api/reference",
+    "topicFile": "by-topic/ffmpeg-webhooks.md",
+    "required": [],
+    "parameters": [],
+    "requestProperties": [
+      {
+        "name": "channels",
+        "required": false,
+        "type": "object",
+        "description": ""
+      },
+      {
+        "name": "webhook_url",
+        "required": false,
+        "type": "string",
+        "description": "URL to receive webhook POST requests."
+      },
+      {
+        "name": "telegram_chat_id",
+        "required": false,
+        "type": "string",
+        "description": "Telegram chat ID for notifications."
+      },
+      {
+        "name": "webhook_events",
+        "required": false,
+        "type": "array",
+        "description": "List of webhook event types to subscribe to. If omitted, all events are enabled."
+      }
+    ],
+    "responses": [
+      "200",
+      "401"
+    ]
+  },
+  {
+    "id": "getUserMedia",
+    "method": "GET",
+    "path": "/uploadposts/media",
+    "baseUrl": "https://api.upload-post.com/api",
+    "fullUrl": "https://api.upload-post.com/api/uploadposts/media",
+    "summary": "Get media list",
+    "description": "Retrieve a list of recent media (posts, reels, videos, pins, tweets, etc.) from a connected social media account. Supports Instagram, TikTok, YouTube, LinkedIn, Facebook, X (Twitter), Threads, Pinterest, Bluesky, and Reddit.",
+    "tags": [
+      "Platform Integration"
+    ],
+    "source": "https://docs.upload-post.com/openapi.json",
+    "publicDocsUrl": "https://docs.upload-post.com/api/reference",
+    "topicFile": "by-topic/platform-data.md",
+    "required": [],
+    "parameters": [
+      {
+        "name": "platform",
+        "in": "query",
+        "required": true,
+        "type": "string",
+        "description": "The platform to retrieve media from."
+      },
+      {
+        "name": "user",
+        "in": "query",
+        "required": true,
+        "type": "string",
+        "description": "Profile username as configured in Upload-Post."
+      },
+      {
+        "name": "page_urn",
+        "in": "query",
+        "required": false,
+        "type": "string",
+        "description": "LinkedIn only. Selects which LinkedIn page to fetch posts from. Accepts a numeric organization ID (e.g., 12345), a full URN (e.g., urn:li:organization:12345), or 'me' to force the connected member's personal profile. If omitted, accounts connected as an organization admin auto-resolve to their first administered organization; otherwise the personal profile is used."
+      }
+    ],
+    "requestProperties": [],
+    "responses": [
+      "200",
+      "400",
+      "500"
+    ]
+  },
+  {
+    "id": "getPostComments",
+    "method": "GET",
+    "path": "/uploadposts/comments",
+    "baseUrl": "https://api.upload-post.com/api",
+    "fullUrl": "https://api.upload-post.com/api/uploadposts/comments",
+    "summary": "Get Instagram post comments",
+    "description": "Retrieve comments on an Instagram post. Accepts a numeric media ID or a full Instagram post/reel URL. Supports cursor-based pagination via the `after` query parameter — loop while `pagination.has_next` is true. Comments are returned newest-first (reverse-chronological) per Meta Graph API v3.2+; ordering cannot be changed via query parameter.",
+    "tags": [
+      "Instagram Interactions"
+    ],
+    "source": "https://docs.upload-post.com/openapi.json",
+    "publicDocsUrl": "https://docs.upload-post.com/api/reference",
+    "topicFile": "by-topic/instagram-interactions-autodm.md",
+    "required": [],
+    "parameters": [
+      {
+        "name": "platform",
+        "in": "query",
+        "required": true,
+        "type": "string",
+        "description": "Must be 'instagram'."
+      },
+      {
+        "name": "user",
+        "in": "query",
+        "required": true,
+        "type": "string",
+        "description": "Profile username as configured in Upload-Post."
+      },
+      {
+        "name": "post_id",
+        "in": "query",
+        "required": false,
+        "type": "string",
+        "description": "Numeric Instagram media ID. Use post_id or post_url (one is required)."
+      },
+      {
+        "name": "post_url",
+        "in": "query",
+        "required": false,
+        "type": "string",
+        "description": "Full Instagram post or reel URL. Alternative to post_id."
+      },
+      {
+        "name": "limit",
+        "in": "query",
+        "required": false,
+        "type": "integer",
+        "description": "Comments per page. Meta caps this edge at 50. Omit to use Meta's default (~25)."
+      },
+      {
+        "name": "after",
+        "in": "query",
+        "required": false,
+        "type": "string",
+        "description": "Pagination cursor returned in `pagination.next_cursor` of the previous response. Pass it back to fetch the next page."
+      }
+    ],
+    "requestProperties": [],
+    "responses": [
+      "200",
+      "400",
+      "500"
+    ]
+  },
+  {
+    "id": "replyToComment",
+    "method": "POST",
+    "path": "/uploadposts/comments/reply",
+    "baseUrl": "https://api.upload-post.com/api",
+    "fullUrl": "https://api.upload-post.com/api/uploadposts/comments/reply",
+    "summary": "Reply to comment (private reply DM)",
+    "description": "Send a private reply (DM) to the author of a comment on your Instagram post. The comment must be less than 7 days old.",
+    "tags": [
+      "Instagram Interactions"
+    ],
+    "source": "https://docs.upload-post.com/openapi.json",
+    "publicDocsUrl": "https://docs.upload-post.com/api/reference",
+    "topicFile": "by-topic/instagram-interactions-autodm.md",
+    "required": [
+      "comment_id",
+      "message",
+      "platform",
+      "user"
+    ],
+    "parameters": [],
+    "requestProperties": [
+      {
+        "name": "platform",
+        "required": true,
+        "type": "string",
+        "description": "Must be 'instagram'."
+      },
+      {
+        "name": "user",
+        "required": true,
+        "type": "string",
+        "description": "Profile username as configured in Upload-Post."
+      },
+      {
+        "name": "comment_id",
+        "required": true,
+        "type": "string",
+        "description": "ID of the comment to reply to (from Get Post Comments)."
+      },
+      {
+        "name": "message",
+        "required": true,
+        "type": "string",
+        "description": "The private reply message text."
+      }
+    ],
+    "responses": [
+      "200",
+      "400",
+      "429",
+      "500"
+    ]
+  },
+  {
+    "id": "getDmConversations",
+    "method": "GET",
+    "path": "/uploadposts/dms/conversations",
+    "baseUrl": "https://api.upload-post.com/api",
+    "fullUrl": "https://api.upload-post.com/api/uploadposts/dms/conversations",
+    "summary": "Get Instagram DM conversations",
+    "description": "Retrieve the list of Instagram DM conversations for an account, including participants and recent messages.",
+    "tags": [
+      "Instagram Interactions"
+    ],
+    "source": "https://docs.upload-post.com/openapi.json",
+    "publicDocsUrl": "https://docs.upload-post.com/api/reference",
+    "topicFile": "by-topic/instagram-interactions-autodm.md",
+    "required": [],
+    "parameters": [
+      {
+        "name": "platform",
+        "in": "query",
+        "required": true,
+        "type": "string",
+        "description": "Must be 'instagram'."
+      },
+      {
+        "name": "user",
+        "in": "query",
+        "required": true,
+        "type": "string",
+        "description": "Profile username as configured in Upload-Post."
+      }
+    ],
+    "requestProperties": [],
+    "responses": [
+      "200",
+      "400",
+      "500"
+    ]
+  },
+  {
+    "id": "sendDm",
+    "method": "POST",
+    "path": "/uploadposts/dms/send",
+    "baseUrl": "https://api.upload-post.com/api",
+    "fullUrl": "https://api.upload-post.com/api/uploadposts/dms/send",
+    "summary": "Send Instagram DM",
+    "description": "Send a direct message to an Instagram user using their IGSID. The recipient must have messaged your account first (24-hour messaging window policy enforced by Meta).",
+    "tags": [
+      "Instagram Interactions"
+    ],
+    "source": "https://docs.upload-post.com/openapi.json",
+    "publicDocsUrl": "https://docs.upload-post.com/api/reference",
+    "topicFile": "by-topic/instagram-interactions-autodm.md",
+    "required": [
+      "message",
+      "platform",
+      "recipient_id",
+      "user"
+    ],
+    "parameters": [],
+    "requestProperties": [
+      {
+        "name": "platform",
+        "required": true,
+        "type": "string",
+        "description": "Must be 'instagram'."
+      },
+      {
+        "name": "user",
+        "required": true,
+        "type": "string",
+        "description": "Profile username as configured in Upload-Post."
+      },
+      {
+        "name": "recipient_id",
+        "required": true,
+        "type": "string",
+        "description": "Instagram-Scoped User ID (IGSID) of the recipient."
+      },
+      {
+        "name": "message",
+        "required": true,
+        "type": "string",
+        "description": "The text message to send."
+      }
+    ],
+    "responses": [
+      "200",
+      "400",
+      "429",
+      "500"
+    ]
+  },
+  {
+    "id": "docs-autodms-post-start",
+    "method": "POST",
+    "path": "/api/uploadposts/autodms/start",
+    "baseUrl": "https://api.upload-post.com",
+    "fullUrl": "https://api.upload-post.com/api/uploadposts/autodms/start",
+    "summary": "Autodms",
+    "description": "Documented in a docs page but not present in the collected OpenAPI spec. Inspect the topic reference before use.",
+    "tags": [
+      "Docs Page"
+    ],
+    "source": "https://docs.upload-post.com/api/autodms",
+    "publicDocsUrl": "https://docs.upload-post.com/api/autodms",
+    "topicFile": "by-topic/instagram-interactions-autodm.md",
+    "required": [],
+    "parameters": [],
+    "requestProperties": [],
+    "responses": []
+  },
+  {
+    "id": "docs-autodms-get-status",
+    "method": "GET",
+    "path": "/api/uploadposts/autodms/status",
+    "baseUrl": "https://api.upload-post.com",
+    "fullUrl": "https://api.upload-post.com/api/uploadposts/autodms/status",
+    "summary": "Autodms",
+    "description": "Documented in a docs page but not present in the collected OpenAPI spec. Inspect the topic reference before use.",
+    "tags": [
+      "Docs Page"
+    ],
+    "source": "https://docs.upload-post.com/api/autodms",
+    "publicDocsUrl": "https://docs.upload-post.com/api/autodms",
+    "topicFile": "by-topic/instagram-interactions-autodm.md",
+    "required": [],
+    "parameters": [],
+    "requestProperties": [],
+    "responses": []
+  },
+  {
+    "id": "docs-autodms-get-logs",
+    "method": "GET",
+    "path": "/api/uploadposts/autodms/logs",
+    "baseUrl": "https://api.upload-post.com",
+    "fullUrl": "https://api.upload-post.com/api/uploadposts/autodms/logs",
+    "summary": "Autodms",
+    "description": "Documented in a docs page but not present in the collected OpenAPI spec. Inspect the topic reference before use.",
+    "tags": [
+      "Docs Page"
+    ],
+    "source": "https://docs.upload-post.com/api/autodms",
+    "publicDocsUrl": "https://docs.upload-post.com/api/autodms",
+    "topicFile": "by-topic/instagram-interactions-autodm.md",
+    "required": [],
+    "parameters": [],
+    "requestProperties": [],
+    "responses": []
+  },
+  {
+    "id": "docs-autodms-post-pause",
+    "method": "POST",
+    "path": "/api/uploadposts/autodms/pause",
+    "baseUrl": "https://api.upload-post.com",
+    "fullUrl": "https://api.upload-post.com/api/uploadposts/autodms/pause",
+    "summary": "Autodms",
+    "description": "Documented in a docs page but not present in the collected OpenAPI spec. Inspect the topic reference before use.",
+    "tags": [
+      "Docs Page"
+    ],
+    "source": "https://docs.upload-post.com/api/autodms",
+    "publicDocsUrl": "https://docs.upload-post.com/api/autodms",
+    "topicFile": "by-topic/instagram-interactions-autodm.md",
+    "required": [],
+    "parameters": [],
+    "requestProperties": [],
+    "responses": []
+  },
+  {
+    "id": "docs-autodms-post-resume",
+    "method": "POST",
+    "path": "/api/uploadposts/autodms/resume",
+    "baseUrl": "https://api.upload-post.com",
+    "fullUrl": "https://api.upload-post.com/api/uploadposts/autodms/resume",
+    "summary": "Autodms",
+    "description": "Documented in a docs page but not present in the collected OpenAPI spec. Inspect the topic reference before use.",
+    "tags": [
+      "Docs Page"
+    ],
+    "source": "https://docs.upload-post.com/api/autodms",
+    "publicDocsUrl": "https://docs.upload-post.com/api/autodms",
+    "topicFile": "by-topic/instagram-interactions-autodm.md",
+    "required": [],
+    "parameters": [],
+    "requestProperties": [],
+    "responses": []
+  },
+  {
+    "id": "docs-autodms-post-stop",
+    "method": "POST",
+    "path": "/api/uploadposts/autodms/stop",
+    "baseUrl": "https://api.upload-post.com",
+    "fullUrl": "https://api.upload-post.com/api/uploadposts/autodms/stop",
+    "summary": "Autodms",
+    "description": "Documented in a docs page but not present in the collected OpenAPI spec. Inspect the topic reference before use.",
+    "tags": [
+      "Docs Page"
+    ],
+    "source": "https://docs.upload-post.com/api/autodms",
+    "publicDocsUrl": "https://docs.upload-post.com/api/autodms",
+    "topicFile": "by-topic/instagram-interactions-autodm.md",
+    "required": [],
+    "parameters": [],
+    "requestProperties": [],
+    "responses": []
+  },
+  {
+    "id": "docs-autodms-post-delete",
+    "method": "POST",
+    "path": "/api/uploadposts/autodms/delete",
+    "baseUrl": "https://api.upload-post.com",
+    "fullUrl": "https://api.upload-post.com/api/uploadposts/autodms/delete",
+    "summary": "Autodms",
+    "description": "Documented in a docs page but not present in the collected OpenAPI spec. Inspect the topic reference before use.",
+    "tags": [
+      "Docs Page"
+    ],
+    "source": "https://docs.upload-post.com/api/autodms",
+    "publicDocsUrl": "https://docs.upload-post.com/api/autodms",
+    "topicFile": "by-topic/instagram-interactions-autodm.md",
+    "required": [],
+    "parameters": [],
+    "requestProperties": [],
+    "responses": []
+  },
+  {
+    "id": "docs-google-business-locations-get",
+    "method": "GET",
+    "path": "/api/uploadposts/google-business/locations",
+    "baseUrl": "https://api.upload-post.com",
+    "fullUrl": "https://api.upload-post.com/api/uploadposts/google-business/locations",
+    "summary": "Get Google Business locations",
+    "description": "Docs-page endpoint for listing Google Business Profile locations connected to an Upload-Post account. Optional query parameter: profile. Use returned location name as gbp_location_id on upload requests.",
+    "tags": [
+      "Docs Page",
+      "Platform Integration"
+    ],
+    "source": "https://docs.upload-post.com/api/get-google-business-locations",
+    "publicDocsUrl": "https://docs.upload-post.com/api/get-google-business-locations",
+    "topicFile": "by-topic/platform-data.md",
+    "required": [],
+    "parameters": [
+      {
+        "name": "profile",
+        "in": "query",
+        "required": false,
+        "type": "string",
+        "description": "Optional profile username; limits locations to the Google Business account linked to that profile."
+      }
+    ],
+    "requestProperties": [],
+    "responses": [
+      "200"
+    ]
+  }
+]

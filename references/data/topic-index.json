@@ -1,0 +1,128 @@
+[
+  {
+    "id": "overview-auth",
+    "title": "Overview, Authentication, and Quickstart",
+    "file": "by-topic/overview-auth.md",
+    "sourceSections": [
+      "docs/landing.md",
+      "docs/introduction.md",
+      "docs/quickstart.md",
+      "docs/guides/authentication.md"
+    ],
+    "endpointCount": 0
+  },
+  {
+    "id": "content-upload",
+    "title": "Content Upload Endpoints",
+    "file": "by-topic/content-upload.md",
+    "sourceSections": [
+      "docs/api/upload-video.md",
+      "docs/api/upload-photo.md",
+      "docs/api/upload-text.md",
+      "docs/api/upload-document.md",
+      "docs/api/photo-requirements.md",
+      "docs/api/video-requirements.md"
+    ],
+    "endpointCount": 4
+  },
+  {
+    "id": "upload-management",
+    "title": "Upload Status, History, and Scheduled Posts",
+    "file": "by-topic/upload-management.md",
+    "sourceSections": [
+      "docs/api/upload-status.md",
+      "docs/api/upload-history.md",
+      "docs/api/schedule-posts.md"
+    ],
+    "endpointCount": 5
+  },
+  {
+    "id": "scheduling-queue-async",
+    "title": "Async Uploads, Scheduling, and Queue System",
+    "file": "by-topic/scheduling-queue-async.md",
+    "sourceSections": [
+      "docs/guides/async-uploads.md",
+      "docs/api/queue-system.md",
+      "docs/guides/rate-limits.md"
+    ],
+    "endpointCount": 4
+  },
+  {
+    "id": "platform-data",
+    "title": "Platform Data and Analytics",
+    "file": "by-topic/platform-data.md",
+    "sourceSections": [
+      "docs/api/get-analytics.md",
+      "docs/api/get-facebook-pages.md",
+      "docs/api/get-google-business-locations.md",
+      "docs/api/get-linkedin-pages.md",
+      "docs/api/get-pinterest-boards.md",
+      "docs/api/get-reddit-detailed-posts.md"
+    ],
+    "endpointCount": 7
+  },
+  {
+    "id": "user-management-jwt",
+    "title": "User Profiles, Current User, and JWT",
+    "file": "by-topic/user-management-jwt.md",
+    "sourceSections": [
+      "docs/api/current-user.md",
+      "docs/api/user-profiles.md",
+      "docs/guides/user-profile-integration.md",
+      "docs/guides/reached-active-user-cap-error.md"
+    ],
+    "endpointCount": 7
+  },
+  {
+    "id": "ffmpeg-webhooks",
+    "title": "FFmpeg Editor and Webhooks",
+    "file": "by-topic/ffmpeg-webhooks.md",
+    "sourceSections": [
+      "docs/api/ffmpeg-editor.md",
+      "docs/api/webhooks.md"
+    ],
+    "endpointCount": 5
+  },
+  {
+    "id": "instagram-interactions-autodm",
+    "title": "Instagram Media, Comments, DMs, and AutoDM",
+    "file": "by-topic/instagram-interactions-autodm.md",
+    "sourceSections": [
+      "docs/api/instagram-media.md",
+      "docs/api/instagram-comments.md",
+      "docs/api/instagram-dms.md",
+      "docs/api/autodms.md"
+    ],
+    "endpointCount": 11
+  },
+  {
+    "id": "limits-errors",
+    "title": "Limits, Errors, Requirements, and Troubleshooting",
+    "file": "by-topic/limits-errors.md",
+    "sourceSections": [
+      "docs/guides/error-handling.md",
+      "docs/guides/limit-of-uploads.md",
+      "docs/guides/rate-limits.md",
+      "docs/guides/youtube-quota-explained.md",
+      "docs/resources/common-errors.md",
+      "docs/resources/character-limits.md",
+      "docs/resources/faq.md",
+      "docs/resources/support.md"
+    ],
+    "endpointCount": 0
+  },
+  {
+    "id": "integrations-sdks",
+    "title": "SDKs and Workflow Integrations",
+    "file": "by-topic/integrations-sdks.md",
+    "sourceSections": [
+      "docs/sdk-examples.md",
+      "docs/guides/ai-shorts-uploader.md",
+      "docs/guides/airtable-integration.md",
+      "docs/guides/make-integration.md",
+      "docs/guides/mcp-server-integration.md",
+      "docs/guides/n8n-integration.md"
+    ],
+    "endpointCount": 0
+  }
+]
