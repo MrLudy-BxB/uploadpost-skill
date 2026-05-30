@@ -4,22 +4,16 @@ A source-grounded skill for working with the Upload-Post API documentation. It c
 
 ## Install
 
-From a standalone GitHub repository:
+Install from the standalone GitHub repository:
 
 ```bash
-codex skills install https://github.com/<owner>/upload-post-skill
+codex skills install https://github.com/MrLudy-BxB/uploadpost-skill
 ```
 
 From a local clone:
 
 ```bash
-codex skills install ./upload-post
-```
-
-From a repo-local published skills collection, if one is created later:
-
-```bash
-codex skills install ./published-skills/skills/upload-post
+codex skills install .
 ```
 
 ## Example Questions
